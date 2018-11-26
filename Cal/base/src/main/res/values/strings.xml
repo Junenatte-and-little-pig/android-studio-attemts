@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Cal</string>
+    <string name="add2">%1s%2s</string>
+	<string name="add3">%1s%2s%3s</string>
+</resources>
