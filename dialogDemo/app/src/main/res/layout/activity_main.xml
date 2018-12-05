@@ -54,6 +54,12 @@
 		<Button
 			android:layout_width="200dp"
 			android:layout_height="50dp"
+			android:id="@+id/fragmentDialog"
+			android:text="fragmentDialog"
+			android:layout_marginTop="10dp"/>
+		<Button
+			android:layout_width="200dp"
+			android:layout_height="50dp"
 			android:id="@+id/selfDialog"
 			android:text="selfDialog"
 			android:layout_marginTop="10dp"/>

@@ -2,6 +2,7 @@ package com.example.thinkpad.dialogdemo;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    Button tripleDialog,listDialog,singleDialog,multiDialog,waitDialog,progressDialog,editDialog,selfDialog;
+    Button tripleDialog,listDialog,singleDialog,multiDialog,waitDialog,progressDialog,editDialog,fragmentDialog,selfDialog;
     int choice;
     ArrayList<Integer> choices=new ArrayList<Integer>();
     String[] data={"test1","test2","test3","test4"};
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         waitDialog=findViewById(R.id.waitDialog);
         progressDialog=findViewById(R.id.progressDialog);
         editDialog=findViewById(R.id.editDialog);
+        fragmentDialog=findViewById(R.id.fragmentDialog);
         selfDialog=findViewById(R.id.selfDialog);
         tripleDialog.setOnClickListener(this);
         listDialog.setOnClickListener(this);
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         waitDialog.setOnClickListener(this);
         progressDialog.setOnClickListener(this);
         editDialog.setOnClickListener(this);
+        fragmentDialog.setOnClickListener(this);
         selfDialog.setOnClickListener(this);
     }
     @Override
@@ -135,6 +138,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Toast.makeText(MainActivity.this,et.getText().toString(),Toast.LENGTH_LONG).show();
                     }
                 }).show();
+                break;
+            case R.id.fragmentDialog:
+                myDialogFragment mdf=new myDialogFragment();
+                mdf.show(getSupportFragmentManager(),"DIALOGFRAGMENT");
                 break;
             case R.id.selfDialog:
                 final View view=LayoutInflater.from(MainActivity.this).inflate(R.layout.dialog,null);

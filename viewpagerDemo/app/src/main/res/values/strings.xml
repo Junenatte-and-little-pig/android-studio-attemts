@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">viewpagerDemo</string>
+	<string-array name="main">
+		<item name="live">直播</item>
+		<item name="recommend">推荐</item>
+		<item name="bangumi">追番</item>
+	</string-array>
+</resources>
