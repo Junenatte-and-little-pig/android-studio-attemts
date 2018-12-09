@@ -22,6 +22,8 @@
         </activity>
         <activity android:name=".tabActivity">
         </activity>
+        <activity android:name=".mtActivity">
+        </activity>
     </application>
 
 </manifest>

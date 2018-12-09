@@ -3,12 +3,11 @@ package com.example.thinkpad.viewpagerdemo;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    Button simpleVP,titleVP,tabVP;
+    Button simpleVP,titleVP,tabVP,mtVP;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,9 +15,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         simpleVP=findViewById(R.id.simpleVP);
         titleVP=findViewById(R.id.titleVP);
         tabVP=findViewById(R.id.tabVP);
+        mtVP=findViewById(R.id.mySelfTitle);
         simpleVP.setOnClickListener(this);
         titleVP.setOnClickListener(this);
         tabVP.setOnClickListener(this);
+        mtVP.setOnClickListener(this);
     }
     @Override
     public void onClick(View v){
@@ -33,6 +34,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.tabVP:
                 intent=new Intent(MainActivity.this,tabActivity.class);
+                break;
+            case R.id.mySelfTitle:
+                intent=new Intent(MainActivity.this,mtActivity.class);
                 break;
                 default:
                     intent=new Intent();
