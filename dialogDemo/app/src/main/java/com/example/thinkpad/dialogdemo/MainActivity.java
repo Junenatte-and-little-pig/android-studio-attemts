@@ -142,6 +142,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.fragmentDialog:
                 myDialogFragment mdf=new myDialogFragment();
                 mdf.show(getSupportFragmentManager(),"DIALOGFRAGMENT");
+
                 break;
             case R.id.selfDialog:
                 final View view=LayoutInflater.from(MainActivity.this).inflate(R.layout.dialog,null);
