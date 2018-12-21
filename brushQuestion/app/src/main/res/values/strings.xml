@@ -9,4 +9,7 @@
 	<string name="menuPc">个人中心</string>
 	<string name="menuCp">修改密码</string>
 	<string name="menuSet">设置</string>
+	<string name="dowork">做题</string>
+	<string name="review">复习</string>
+	<string name="extension">扩展</string>
 </resources>

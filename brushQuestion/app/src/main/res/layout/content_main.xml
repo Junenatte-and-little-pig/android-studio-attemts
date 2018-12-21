@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
@@ -8,33 +8,80 @@
 	app:layout_behavior="@string/appbar_scrolling_view_behavior"
 	tools:context=".MainActivity">
 	<include
-		layout="@layout/backtoolbar"
-		android:layout_weight="1"
-		android:layout_height="0dp"
-		android:layout_width="@dimen/backButton" />
+		layout="@layout/back_toolbar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content" />
     <android.support.v4.view.ViewPager
+	    android:id="@+id/mainPage"
 	    android:layout_width="match_parent"
-	    android:layout_height="0dp"
-	    android:layout_weight="14"
-	    android:id="@+id/mainPage">
+	    android:layout_height="wrap_content">
     </android.support.v4.view.ViewPager>
 	<LinearLayout
 		android:layout_width="match_parent"
-		android:layout_height="0dp"
-		android:layout_weight="2"
+		android:layout_height="@dimen/bottomButton"
 		android:layout_gravity="bottom">
-		<include layout="@layout/bottombuttons"
-			android:layout_height="match_parent"
+		<LinearLayout
 			android:layout_width="0dp"
+			android:layout_height="match_parent"
 			android:layout_weight="1"
-			tools:ignore="NestedWeights" />
-		<include layout="@layout/bottombuttons"
-			android:layout_height="match_parent"
+			android:background="@color/bottomButton"
+			android:orientation="vertical">
+			<ImageButton
+				android:id="@+id/ib_dowork"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="2"
+				android:background="@color/bottomButton"
+				android:src="@drawable/dowork"/>
+			<Button
+				android:id="@+id/tb_dowork"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:background="@color/bottomButton"
+				android:text="@string/dowork"/>
+		</LinearLayout>
+		<LinearLayout
 			android:layout_width="0dp"
-			android:layout_weight="1"/>
-		<include layout="@layout/bottombuttons"
 			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:background="@color/bottomButton"
+			android:orientation="vertical">
+			<ImageButton
+				android:id="@+id/ib_review"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="2"
+				android:background="@color/bottomButton"
+				android:src="@drawable/review"/>
+			<Button
+				android:id="@+id/tb_review"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:background="@color/bottomButton"
+				android:text="@string/review"/>
+		</LinearLayout>
+		<LinearLayout
 			android:layout_width="0dp"
-			android:layout_weight="1"/>
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:background="@color/bottomButton"
+			android:orientation="vertical">
+			<ImageButton
+				android:id="@+id/ib_extension"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="2"
+				android:background="@color/bottomButton"
+				android:src="@drawable/extension"/>
+			<Button
+				android:id="@+id/tb_extension"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:layout_weight="1"
+				android:background="@color/bottomButton"
+				android:text="@string/extension"/>
+		</LinearLayout>
 	</LinearLayout>
-</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>
