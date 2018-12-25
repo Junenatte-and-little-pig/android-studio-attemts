@@ -1,9 +1,15 @@
 package com.example.thinkpad.brushquestion;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -19,43 +25,44 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,NavigationView.OnNavigationItemSelectedListener {
-    private Toolbar toolbar;
     private ViewPager contentVp;
-    private ArrayList<View> viewList;
-    private ImageButton ib_dowork,ib_review,ib_extension;
-    private Button tb_dowork,tb_review,tb_extension;
+    FragmentManager fm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        fm=getSupportFragmentManager();
         initView();
     }
+    @SuppressLint("InflateParams")
     private void initView(){
-        toolbar=findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle=new ActionBarDrawerToggle(this,drawer,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle=new ActionBarDrawerToggle(this,drawer, toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         contentVp=findViewById(R.id.mainPage);
-        viewList=new ArrayList<>();
-        LayoutInflater li=getLayoutInflater();
-        viewList.add(li.inflate(R.layout.dowork,null,false));
-        viewList.add(li.inflate(R.layout.review,null,false));
-        viewList.add(li.inflate(R.layout.extension,null,false));
-        contentVp.setAdapter(new ContentPagerAdapter(viewList));
+        List<Fragment> fragmentList = new ArrayList<>();
+        fragmentList.add(new DoworkFragment());
+        fragmentList.add(new ReviewFragment());
+        fragmentList.add(new ExtensionFragment());
+        contentVp.setAdapter(new ContentPagerAdapter(fm,fragmentList));
         contentVp.setCurrentItem(0);
 
-        ib_dowork=findViewById(R.id.ib_dowork);
-        ib_review=findViewById(R.id.ib_review);
-        ib_extension=findViewById(R.id.ib_extension);
-        tb_dowork=findViewById(R.id.tb_dowork);
-        tb_review=findViewById(R.id.tb_review);
-        tb_extension=findViewById(R.id.tb_extension);
+        ImageButton ib_dowork = findViewById(R.id.ib_dowork);
+        ImageButton ib_review = findViewById(R.id.ib_review);
+        ImageButton ib_extension = findViewById(R.id.ib_extension);
+        Button tb_dowork = findViewById(R.id.tb_dowork);
+        Button tb_review = findViewById(R.id.tb_review);
+        Button tb_extension = findViewById(R.id.tb_extension);
         ib_dowork.setOnClickListener(this);
         ib_review.setOnClickListener(this);
         ib_extension.setOnClickListener(this);
