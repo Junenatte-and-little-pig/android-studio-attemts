@@ -8,9 +8,15 @@ import java.util.List;
 
 public class ContentPagerAdapter extends FragmentPagerAdapter {
     private List<Fragment> fragmentList;
+    private List<String> tabList;
     ContentPagerAdapter(FragmentManager fm,List<Fragment> fragmentList){
         super(fm);
         this.fragmentList=fragmentList;
+    }
+    ContentPagerAdapter(FragmentManager fm,List<Fragment> fragmentList,List<String> tabList){
+        super(fm);
+        this.fragmentList=fragmentList;
+        this.tabList=tabList;
     }
     @Override
     public Fragment getItem(int position){
@@ -20,5 +26,9 @@ public class ContentPagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         return fragmentList!=null?fragmentList.size():0;
+    }
+    @Override
+    public CharSequence getPageTitle(int position){
+        return tabList.get(position);
     }
 }

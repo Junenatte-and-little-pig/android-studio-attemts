@@ -15,7 +15,7 @@ public class ExtensionFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if(extensionView==null)
-            extensionView=inflater.inflate(R.layout.extension,null);
+            extensionView=inflater.inflate(R.layout.fragment_extension,null);
         return extensionView;
     }
 }

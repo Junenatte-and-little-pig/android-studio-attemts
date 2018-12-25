@@ -19,7 +19,7 @@ public class tabActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tab);
         vp_main_tab=findViewById(R.id.vp_main_tab);
-        titleList=new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.main)));
+        titleList= new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.main)));
         viewList=new ArrayList<>();
         LayoutInflater li=getLayoutInflater();
         viewList.add(li.inflate(R.layout.view_main_live,null,false));

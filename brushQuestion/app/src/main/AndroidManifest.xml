@@ -21,6 +21,8 @@
         </activity>
         <activity android:name=".doworkActivity">
         </activity>
+        <activity android:name=".SignActivity">
+        </activity>
     </application>
 
 </manifest>

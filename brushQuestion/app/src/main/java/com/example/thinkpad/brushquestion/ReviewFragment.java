@@ -15,7 +15,7 @@ public class ReviewFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if(reviewView==null)
-            reviewView=inflater.inflate(R.layout.review,null);
+            reviewView=inflater.inflate(R.layout.fragment_review,null);
         return reviewView;
     }
 }

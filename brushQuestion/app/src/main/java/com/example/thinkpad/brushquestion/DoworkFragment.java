@@ -11,7 +11,7 @@ public class DoworkFragment extends Fragment {
     View DoworkView;
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         if(DoworkView==null)
-            DoworkView=inflater.inflate(R.layout.dowork,null);
+            DoworkView=inflater.inflate(R.layout.fragment_dowork,null);
         DoworkView.findViewById(R.id.startBrush).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
