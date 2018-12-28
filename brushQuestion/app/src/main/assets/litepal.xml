@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+	<dbname value="BQdatabase" />
+	<version value="4" />
+	<list>
+		<mapping class="com.example.thinkpad.brushquestion.UP" />
+		<mapping class="com.example.thinkpad.brushquestion.U_info" />
+		<mapping class="com.example.thinkpad.brushquestion.U_qs" />
+	</list>
+	<storage value="brushQueation/database"/>
+</litepal>

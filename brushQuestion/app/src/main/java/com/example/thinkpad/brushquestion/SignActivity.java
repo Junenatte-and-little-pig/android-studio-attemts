@@ -30,7 +30,6 @@ public class SignActivity extends AppCompatActivity {
 
     public void initView() {
         signVp = findViewById(R.id.signVp);
-
         tabList.add("sign in");
         tabList.add("sign up");
         fragmentList.add(new SignInFragment());

@@ -1,19 +1,26 @@
 package com.example.thinkpad.brushquestion;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.litepal.LitePal;
+
+import java.util.List;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.zip.Inflater;
 
 public class doworkActivity extends AppCompatActivity implements View.OnClickListener {
     Button btn_1, btn_2, btn_3, btn_4, btn_5, btn_6, btn_7, btn_8, btn_9, btn_0;
@@ -73,7 +80,23 @@ public class doworkActivity extends AppCompatActivity implements View.OnClickLis
         btn_0.setOnClickListener(this);
         btn_B.setOnClickListener(this);
         btn_C.setOnClickListener(this);
-        submit.setOnClickListener(this);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showTime.setText("3");
+                if (!result.getText().toString().equals(""))
+                    if (judge(cal_1.getText().toString(), op.getText().toString(), cal_2.getText().toString(), result.getText().toString()))
+                        rw.setImageResource(R.drawable.right);
+                    else {
+                        rw.setImageResource(R.drawable.wrong);
+                        List<U_info> info=LitePal.where("nickname=?","abc").find(U_info.class);
+                        List<U_qs> qs=LitePal.where("username=?",info.get(0).getUsername()).find(U_qs.class);
+                        qs.get(0).setWrongs(cal_1.getText().toString()+" "+op.getText().toString()+" "+ cal_2.getText().toString());
+                        qs.get(0).updateAll("username=?",info.get(0).getUsername());
+                    }
+                startTimer(countDownTime, tt_cdt, COUNT_DOWN_MESSAGE);
+            }
+        });
         nextQ();
 
         handler = new Handler() {
@@ -128,15 +151,6 @@ public class doworkActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.btn_C:
                 str = "";
-                break;
-            case R.id.submit:
-                showTime.setText("3");
-                if (!result.getText().toString().equals(""))
-                    if (judge(cal_1.getText().toString(), op.getText().toString(), cal_2.getText().toString(), str))
-                        rw.setImageResource(R.drawable.right);
-                    else
-                        rw.setImageResource(R.drawable.wrong);
-                startTimer(countDownTime, tt_cdt, COUNT_DOWN_MESSAGE);
                 break;
         }
         result.setText(str);
